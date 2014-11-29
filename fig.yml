@@ -1,0 +1,10 @@
+redis:
+  image: redis:2.8
+
+test:
+  build: .
+  volumes:
+    - .:/var/www/bucket
+  links:
+    - redis
+  command: python bucket_test.py
